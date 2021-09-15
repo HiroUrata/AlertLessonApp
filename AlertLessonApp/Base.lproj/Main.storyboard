@@ -1,24 +1,85 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="AlertLessonApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mWb-rL-tjf">
+                                <rect key="frame" x="126" y="194" width="162" height="43"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="43" id="FyK-xU-edT"/>
+                                </constraints>
+                                <state key="normal" title="Alert01"/>
+                                <connections>
+                                    <action selector="usualAlert:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ti9-Gl-KRy"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cIE-g1-EcR">
+                                <rect key="frame" x="126" y="297" width="162" height="43"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="43" id="k1N-04-ofm"/>
+                                </constraints>
+                                <state key="normal" title="Alert02"/>
+                                <connections>
+                                    <action selector="usualActionSheetAlert:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mMz-c7-qxF"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fqL-DI-Bcv">
+                                <rect key="frame" x="126" y="400" width="162" height="43"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="43" id="PrE-0u-Z12"/>
+                                </constraints>
+                                <state key="normal" title="Alert03"/>
+                                <connections>
+                                    <action selector="textfieldInAlert:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fu7-7A-YRz"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yXr-SW-lMY">
+                                <rect key="frame" x="126" y="503" width="162" height="43"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="43" id="3E3-cI-h97"/>
+                                </constraints>
+                                <state key="normal" title="Alert04"/>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="mWb-rL-tjf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="126" id="44f-qu-Dxh"/>
+                            <constraint firstItem="cIE-g1-EcR" firstAttribute="top" secondItem="mWb-rL-tjf" secondAttribute="bottom" constant="60" id="8yu-iv-UZC"/>
+                            <constraint firstItem="fqL-DI-Bcv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="126" id="AKR-mb-esn"/>
+                            <constraint firstItem="fqL-DI-Bcv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Do9-7Y-K5i"/>
+                            <constraint firstItem="mWb-rL-tjf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="FA9-Lv-kcR"/>
+                            <constraint firstItem="cIE-g1-EcR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="GbM-mI-rWi"/>
+                            <constraint firstItem="cIE-g1-EcR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="126" id="WrE-Ad-rhV"/>
+                            <constraint firstItem="mWb-rL-tjf" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="150" id="ZIh-gm-2pG"/>
+                            <constraint firstItem="yXr-SW-lMY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ZX9-yS-gEw"/>
+                            <constraint firstItem="fqL-DI-Bcv" firstAttribute="top" secondItem="cIE-g1-EcR" secondAttribute="bottom" constant="60" id="e54-p4-f5z"/>
+                            <constraint firstItem="yXr-SW-lMY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="126" id="tMP-oP-4XR"/>
+                            <constraint firstItem="yXr-SW-lMY" firstAttribute="top" secondItem="fqL-DI-Bcv" secondAttribute="bottom" constant="60" id="yfr-DI-I1H"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="106.47321428571428"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
