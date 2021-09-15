@@ -20,7 +20,7 @@ class ViewController: UIViewController {
             
             let alert = UIAlertController(title: "タイトルだよ", message: "アラートの内容だよ", preferredStyle: .alert)
             
-            alert.addAction(UIAlertAction(title: "No", style: .default, handler: { _ in
+            alert.addAction(UIAlertAction(title: "No", style: .destructive, handler: { _ in
                 
                 print("No")
                 
@@ -46,13 +46,13 @@ class ViewController: UIViewController {
             
             let alert = UIAlertController(title: "タイトルだよ", message: "アラートの内容だよ", preferredStyle: .actionSheet)
             
-            alert.addAction(UIAlertAction(title: "No", style: .default, handler: { _ in
+            alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { _ in
                 
                 print("Yes")
                 
             }))
             
-            alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { _ in
+            alert.addAction(UIAlertAction(title: "No", style: .destructive, handler: { _ in
                 
                 print("No")
                 
@@ -76,15 +76,33 @@ class ViewController: UIViewController {
     
     @IBAction func textfieldInAlert(_ sender: Any) {
         
+        let textfieldInAlert = {() -> UIAlertController in
+            
+            let alert = UIAlertController(title: "タイトルだよ", message: "アラートの内容だよ", preferredStyle: .alert)
+            
+            alert.addTextField { (alertTextField:UITextField) in
+                
+                alertTextField.placeholder = "文字を入力してね"
+
+            }
+            
+            alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { _ in
+                
+                print("Yes")
+                
+            }))
+            
+            alert.addAction(UIAlertAction(title: "No", style: .destructive, handler: { _ in
+                
+                print("No")
+                
+            }))
+            
+            return alert
+        }()
+        
+        self.present(textfieldInAlert, animated: true, completion: nil)
         
     }
-    
-    
-    @IBAction func textfieldInActionSheetAlert(_ sender: Any) {
-        
-        
-    }
-    
     
 }
-

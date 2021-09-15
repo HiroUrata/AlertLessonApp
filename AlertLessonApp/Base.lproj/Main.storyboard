@@ -46,13 +46,6 @@
                                     <action selector="textfieldInAlert:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fu7-7A-YRz"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yXr-SW-lMY">
-                                <rect key="frame" x="126" y="503" width="162" height="43"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="43" id="3E3-cI-h97"/>
-                                </constraints>
-                                <state key="normal" title="Alert04"/>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -65,10 +58,7 @@
                             <constraint firstItem="cIE-g1-EcR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="GbM-mI-rWi"/>
                             <constraint firstItem="cIE-g1-EcR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="126" id="WrE-Ad-rhV"/>
                             <constraint firstItem="mWb-rL-tjf" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="150" id="ZIh-gm-2pG"/>
-                            <constraint firstItem="yXr-SW-lMY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ZX9-yS-gEw"/>
                             <constraint firstItem="fqL-DI-Bcv" firstAttribute="top" secondItem="cIE-g1-EcR" secondAttribute="bottom" constant="60" id="e54-p4-f5z"/>
-                            <constraint firstItem="yXr-SW-lMY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="126" id="tMP-oP-4XR"/>
-                            <constraint firstItem="yXr-SW-lMY" firstAttribute="top" secondItem="fqL-DI-Bcv" secondAttribute="bottom" constant="60" id="yfr-DI-I1H"/>
                         </constraints>
                     </view>
                 </viewController>
