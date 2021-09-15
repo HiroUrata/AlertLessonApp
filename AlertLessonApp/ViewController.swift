@@ -20,15 +20,15 @@ class ViewController: UIViewController {
             
             let alert = UIAlertController(title: "タイトルだよ", message: "アラートの内容だよ", preferredStyle: .alert)
             
-            alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { _ in
+            alert.addAction(UIAlertAction(title: "No", style: .default, handler: { _ in
                 
-                print("Yes")
+                print("No")
                 
             }))
             
-            alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: { _ in
+            alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { _ in
                 
-                print("No")
+                print("Yes")
                 
             }))
             
@@ -39,15 +39,46 @@ class ViewController: UIViewController {
         
     }
     
+    
     @IBAction func usualActionSheetAlert(_ sender: Any) {
         
+        let usualActionSheetAlert = {() -> UIAlertController in
+            
+            let alert = UIAlertController(title: "タイトルだよ", message: "アラートの内容だよ", preferredStyle: .actionSheet)
+            
+            alert.addAction(UIAlertAction(title: "No", style: .default, handler: { _ in
+                
+                print("Yes")
+                
+            }))
+            
+            alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { _ in
+                
+                print("No")
+                
+            }))
+            
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { _ in
+                
+                print("cancel")
+                
+            }))
+            
+            return alert
+        }()
+        
+        self.present(usualActionSheetAlert, animated: true, completion: nil)
         
     }
+        
+    
+    
     
     @IBAction func textfieldInAlert(_ sender: Any) {
         
         
     }
+    
     
     @IBAction func textfieldInActionSheetAlert(_ sender: Any) {
         
