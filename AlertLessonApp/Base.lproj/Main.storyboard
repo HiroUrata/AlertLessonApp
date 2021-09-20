@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="iJY-dD-C13">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -16,31 +16,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mWb-rL-tjf">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mWb-rL-tjf">
                                 <rect key="frame" x="126" y="194" width="162" height="43"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="43" id="FyK-xU-edT"/>
-                                </constraints>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Alert01"/>
                                 <connections>
                                     <action selector="usualAlert:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ti9-Gl-KRy"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cIE-g1-EcR">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cIE-g1-EcR">
                                 <rect key="frame" x="126" y="297" width="162" height="43"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="43" id="k1N-04-ofm"/>
-                                </constraints>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Alert02"/>
                                 <connections>
                                     <action selector="usualActionSheetAlert:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mMz-c7-qxF"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fqL-DI-Bcv">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fqL-DI-Bcv">
                                 <rect key="frame" x="126" y="400" width="162" height="43"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="43" id="PrE-0u-Z12"/>
-                                </constraints>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Alert03"/>
                                 <connections>
                                     <action selector="textfieldInAlert:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fu7-7A-YRz"/>
@@ -49,20 +43,28 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="mWb-rL-tjf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="126" id="44f-qu-Dxh"/>
-                            <constraint firstItem="cIE-g1-EcR" firstAttribute="top" secondItem="mWb-rL-tjf" secondAttribute="bottom" constant="60" id="8yu-iv-UZC"/>
-                            <constraint firstItem="fqL-DI-Bcv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="126" id="AKR-mb-esn"/>
-                            <constraint firstItem="fqL-DI-Bcv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Do9-7Y-K5i"/>
-                            <constraint firstItem="mWb-rL-tjf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="FA9-Lv-kcR"/>
-                            <constraint firstItem="cIE-g1-EcR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="GbM-mI-rWi"/>
-                            <constraint firstItem="cIE-g1-EcR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="126" id="WrE-Ad-rhV"/>
-                            <constraint firstItem="mWb-rL-tjf" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="150" id="ZIh-gm-2pG"/>
-                            <constraint firstItem="fqL-DI-Bcv" firstAttribute="top" secondItem="cIE-g1-EcR" secondAttribute="bottom" constant="60" id="e54-p4-f5z"/>
-                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="csZ-Iv-g14"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1047.8260869565217" y="106.47321428571428"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="KVf-b6-mwN">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="iJY-dD-C13" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="Bcv-sk-OIX">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="JVl-Rh-5dO"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="i31-I5-yaB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="106.47321428571428"/>
         </scene>

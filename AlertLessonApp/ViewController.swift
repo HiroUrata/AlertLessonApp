@@ -12,6 +12,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        navigationItem.searchController = UISearchController()
+        
     }
 
     @IBAction func usualAlert(_ sender: Any) {
