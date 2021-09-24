@@ -10,6 +10,8 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var bookMarkTableView: UITableView!
+    
     
     let searchController = UISearchController()
     
@@ -33,16 +35,17 @@ class ViewController: UIViewController {
         
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
-    
-        title = "全て表示中"
-        tableView.delegate = self
-        tableView.dataSource = self
-        searchController.searchBar.delegate = self
         
-        searchController.searchBar.delegate = self
-        //searchController.searchBar.showsScopeBar = true //falseだと完全に隠れる
+        title = "全て表示中"
         searchController.searchBar.scopeButtonTitles = ["Vで検索","Fで検索","Cで検索"]
         searchController.searchBar.showsBookmarkButton = true
+        //searchController.searchBar.showsScopeBar = true //falseだと完全に隠れる
+        
+        tableView.dataSource = self
+       
+        bookMarkTableView.dataSource = self
+        searchController.searchBar.delegate = self
+
         
     }
     
@@ -52,6 +55,17 @@ class ViewController: UIViewController {
 
 extension ViewController:UISearchBarDelegate{
     
+    func searchBarBookmarkButtonClicked(_ searchBar: UISearchBar) {
+        //ブックマークが押された時の処理
+        
+        UITableView.animate(withDuration: 0.7) {
+            
+            self.bookMarkTableView.frame.origin.x = self.view.frame.minX
+            
+        }
+
+
+    }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
@@ -81,49 +95,81 @@ extension ViewController:UISearchBarDelegate{
 }
 
 
-extension ViewController:UITableViewDelegate,UITableViewDataSource {
+extension ViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        return tableView.frame.size.height / 7
+        switch tableView{
+        
+        case self.tableView: return tableView.frame.size.height / 7
+        case bookMarkTableView: return tableView.frame.size.height / 9
+            
+        default: return tableView.frame.size.height / 5
+        }
         
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
-        return 1
+        switch tableView{
+        
+        case self.tableView: return 1
+        case bookMarkTableView: return 1
+            
+        default: return 1
+        }
         
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return {() -> Int in
+        switch tableView{
+        
+        case self.tableView: switch searchResultArray.count > 0{
             
-            switch searchResultArray.count > 0{
+                             case true: return searchResultArray.count
+                             case false: return cellContentsArray.count
+                
+                             }
             
-            case true: return searchResultArray.count
-                
-            case false: return cellContentsArray.count
-                
-            }
-        }()
+        case bookMarkTableView: return 10
+            
+        default: return 10
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        switch tableView{
         
-        cell.textLabel?.text = {() -> String in
-           
-            switch searchResultArray.count > 0{
+        case self.tableView:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
             
-            case true: return searchResultArray[indexPath.row]
+            cell.textLabel?.text = {() -> String in
+               
+                switch searchResultArray.count > 0{
                 
-            case false: return cellContentsArray[indexPath.row]
-            }
-        }()
+                case true: return searchResultArray[indexPath.row]
+                    
+                case false: return cellContentsArray[indexPath.row]
+                }
+            }()
+            return cell
+            
+        case bookMarkTableView:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "BookMarkCell", for: indexPath)
+            
+            cell.textLabel?.text = String(indexPath.row)
+            return cell
+            
+        default:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "BookMarkCell", for: indexPath)
+            
+            cell.textLabel?.text = String(indexPath.row)
+            return cell
+        }
         
-        return cell
     }
     
 }
