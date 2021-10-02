@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     
     let searchController = UISearchController()
     
-    let cellContentsArray = ["UITableView",
+    var cellContentsArray = ["UITableView",
                              "UISearchController",
                              "UIView",
                              "UIColor",
@@ -29,24 +29,43 @@ class ViewController: UIViewController {
     
     var searchResultArray = [String]()
     
+    let stringOne = "abcdefg"
+    let stringTwo = "1234567"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        print(stringOne.suffix(2))
+//        print(stringTwo.suffix(5))
+//
+//        print(stringTwo.prefix(3).suffix(2))
+//
+//        let prefixString = stringTwo.prefix(3)
+//        print(prefixString.suffix(2))
+//
+        
+        print(cellContentsArray.contains("UIView"))
+        print(cellContentsArray.contains("UIImage"))
+        print(cellContentsArray.reverse())
+        print(cellContentsArray.randomElement() as Any)
+        
+        
+        
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
-        
+    
         title = "全て表示中"
+        tableView.delegate = self
+        tableView.dataSource = self
+        bookMarkTableView.delegate = self
+        searchController.searchBar.delegate = self
+        
+        searchController.searchBar.delegate = self
+        //searchController.searchBar.showsScopeBar = true //falseだと完全に隠れる
         searchController.searchBar.scopeButtonTitles = ["Vで検索","Fで検索","Cで検索"]
         searchController.searchBar.showsBookmarkButton = true
-        //searchController.searchBar.showsScopeBar = true //falseだと完全に隠れる
         
-        tableView.dataSource = self
        
-        bookMarkTableView.dataSource = self
-        searchController.searchBar.delegate = self
-
-        
     }
     
     
@@ -58,11 +77,6 @@ extension ViewController:UISearchBarDelegate{
     func searchBarBookmarkButtonClicked(_ searchBar: UISearchBar) {
         //ブックマークが押された時の処理
         
-        UITableView.animate(withDuration: 0.7) {
-            
-            self.bookMarkTableView.frame.origin.x = self.view.frame.minX
-            
-        }
 
 
     }
@@ -95,81 +109,49 @@ extension ViewController:UISearchBarDelegate{
 }
 
 
-extension ViewController: UITableViewDataSource {
+extension ViewController:UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        switch tableView{
-        
-        case self.tableView: return tableView.frame.size.height / 7
-        case bookMarkTableView: return tableView.frame.size.height / 9
-            
-        default: return tableView.frame.size.height / 5
-        }
+        return tableView.frame.size.height / 7
         
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
-        switch tableView{
-        
-        case self.tableView: return 1
-        case bookMarkTableView: return 1
-            
-        default: return 1
-        }
+        return 1
         
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        switch tableView{
-        
-        case self.tableView: switch searchResultArray.count > 0{
+        return {() -> Int in
             
-                             case true: return searchResultArray.count
-                             case false: return cellContentsArray.count
+            switch searchResultArray.count > 0{
+            
+            case true: return searchResultArray.count
                 
-                             }
-            
-        case bookMarkTableView: return 10
-            
-        default: return 10
-        }
-        
+            case false: return cellContentsArray.count
+                
+            }
+        }()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        switch tableView{
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         
-        case self.tableView:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        cell.textLabel?.text = {() -> String in
+           
+            switch searchResultArray.count > 0{
             
-            cell.textLabel?.text = {() -> String in
-               
-                switch searchResultArray.count > 0{
+            case true: return searchResultArray[indexPath.row]
                 
-                case true: return searchResultArray[indexPath.row]
-                    
-                case false: return cellContentsArray[indexPath.row]
-                }
-            }()
-            return cell
-            
-        case bookMarkTableView:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "BookMarkCell", for: indexPath)
-            
-            cell.textLabel?.text = String(indexPath.row)
-            return cell
-            
-        default:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "BookMarkCell", for: indexPath)
-            
-            cell.textLabel?.text = String(indexPath.row)
-            return cell
-        }
+            case false: return cellContentsArray[indexPath.row]
+            }
+        }()
         
+        return cell
     }
     
 }
